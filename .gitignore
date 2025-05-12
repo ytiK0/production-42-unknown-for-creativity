@@ -5,3 +5,6 @@
 temp
 
 /backend/.env.local
+
+/backend/static/*
+!/backend/static/.gitkeep
