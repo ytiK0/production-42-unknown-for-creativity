@@ -1,9 +1,9 @@
 import { defineConfig } from "@mikro-orm/sqlite";
-import {User} from "./modules/user/user.entity.js";
 import {TsMorphMetadataProvider} from "@mikro-orm/reflection";
+import config from "./mikro-orm.config.js";
 
 export default defineConfig({
   dbName: ":memory:",
   metadataProvider: TsMorphMetadataProvider,
-  entities: [User]
+  entities: config.entities
 })

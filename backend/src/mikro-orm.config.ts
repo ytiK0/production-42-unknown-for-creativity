@@ -3,6 +3,7 @@ import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
 import {configDotenv} from "dotenv";
 import {User} from "./modules/user/user.entity.js";
 import {Migrator} from "@mikro-orm/migrations";
+import {Outfit} from "./modules/outfit/outfit.entity.js";
 
 configDotenv({
   path: [".env.local", ".env"]
@@ -16,7 +17,7 @@ export default defineConfig({
   dbName: process.env.DB_NAME,
   debug: process.env.NODE_ENV !== 'prod',
   metadataProvider: TsMorphMetadataProvider,
-  entities: [User],
+  entities: [User, Outfit],
   dynamicImportProvider: id => import(id),
   migrations: {
     path: './dist/migrations',
