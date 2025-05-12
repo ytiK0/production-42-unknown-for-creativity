@@ -1,14 +1,16 @@
 import {UserRepository} from "./modules/user/user.repository.js";
-import {EntityManager, MikroORM as PgMikroOrm, Options} from "@mikro-orm/postgresql";
+import {EntityManager, EntityRepository, MikroORM as PgMikroOrm, Options} from "@mikro-orm/postgresql";
 import {User} from "./modules/user/user.entity.js";
 import config from "./mikro-orm.config.js"
 import testConfig from "./mikro-orm.test-config.js";
 import {MikroORM as TestMikroOrm} from "@mikro-orm/sqlite";
+import {Outfit} from "./modules/outfit/outfit.entity.js";
 
 export interface Services {
   orm: PgMikroOrm | TestMikroOrm;
   em: EntityManager;
   user: UserRepository;
+  outfit: EntityRepository<Outfit>
 }
 
 let cache: Services;
@@ -39,5 +41,6 @@ export async function initORM(options?: Options): Promise<Services> {
     orm,
     em: orm.em,
     user: orm.em.getRepository(User),
+    outfit: orm.em.getRepository(Outfit)
   };
 }

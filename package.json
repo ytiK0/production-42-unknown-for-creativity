@@ -24,6 +24,7 @@
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
     "@fastify/jwt": "^9.1.0",
+    "@fastify/multipart": "^9.0.3",
     "@fastify/sensible": "^6.0.3",
     "@mikro-orm/core": "^6.4.15",
     "@mikro-orm/migrations": "^6.4.15",
@@ -35,6 +36,7 @@
     "fastify": "^5.3.2",
     "fastify-type-provider-zod": "^4.0.2",
     "fluent-json-schema": "^6.0.0",
+    "slugify": "^1.6.6",
     "uuid": "^11.1.0",
     "zod": "^3.24.4"
   },
@@ -42,6 +44,7 @@
     "@mikro-orm/cli": "^6.4.15",
     "@mikro-orm/sqlite": "^6.4.15",
     "@types/node": "^22.15.17",
+    "form-data-encoder": "^4.0.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "vitest": "^3.1.3"

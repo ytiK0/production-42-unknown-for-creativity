@@ -1,4 +1,4 @@
-import {Entity, EntityRepositoryType, PrimaryKey, Property} from "@mikro-orm/postgresql";
+import {Entity, PrimaryKey, Property} from "@mikro-orm/postgresql";
 import bcrypt from "bcryptjs"
 import {UserRepository} from "./user.repository.js";
 
@@ -6,9 +6,6 @@ import {UserRepository} from "./user.repository.js";
 export class User {
   @PrimaryKey()
   username: string;
-
-  @Property()
-  userPicHref?: string;
 
   @Property({ hidden: true, lazy: true })
   passwordHash!: string;

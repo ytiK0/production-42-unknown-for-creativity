@@ -2,7 +2,7 @@ import {FastifyInstance, FastifyReply} from "fastify";
 import {initORM} from "../../db.js";
 import Z from "zod";
 import bcrypt from "bcryptjs";
-import * as repl from "node:repl";
+import {mkdir} from "node:fs/promises";
 
 const authDataSchema = Z.object({
   username: Z.string(),
@@ -45,6 +45,8 @@ export async function registerUserRoutes (app: FastifyInstance) {
     db.em.persist(newUser);
 
     await db.em.flush();
+
+    await mkdir(`./static/${newUser.username}`, {recursive: true});
 
     return sendSignToken(username, reply, 201);
   });
