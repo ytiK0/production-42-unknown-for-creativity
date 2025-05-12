@@ -2,6 +2,6 @@
 
 /node_modules
 
-.env.local
-
 temp
+
+/backend/.env.local
