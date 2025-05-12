@@ -1,13 +1,12 @@
-import {afterAll, assert, beforeAll, beforeEach, expect, test} from "vitest";
-import {FastifyInstance, FastifyReply} from "fastify";
-import {asyncWrapProviders} from "node:async_hooks";
+import {afterAll, beforeAll, expect, test} from "vitest";
+import {FastifyInstance} from "fastify";
 import {startup} from "../src/app";
 
 let app: FastifyInstance;
 
 beforeAll(async  () => {
   process.env.NODE_ENV = "test";
-  app = (await startup(2223)).app;
+  app = (await startup(2222)).app;
 });
 
 afterAll(async () => {
@@ -41,7 +40,7 @@ test("login test", async () => {
   const username = "ytiK000";
   const password = "123456789"
 
-  const registerResponse = await app.inject({
+  await app.inject({
     method: "POST",
     path: "/user/register",
     body: {
